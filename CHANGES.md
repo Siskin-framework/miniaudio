@@ -1,3 +1,30 @@
+v0.11.21 - 2023-11-15
+=====================
+* Add new ma_device_notification_type_unlocked notification. This is used on Web and will be fired after the user has performed a gesture and thus unlocked the ability to play audio.
+* Web: Fix an error where the buffer size is incorrectly calculated.
+* Core Audio: Fix a -Wshadow warning.
+
+
+v0.11.20 - 2023-11-10
+=====================
+* Fix a compilation error with iOS.
+* Fix an error when dynamically linking libraries when forcing the UWP build on desktop.
+
+
+v0.11.19 - 2023-11-04
+=====================
+* Fix a bug where `ma_decoder_init_file()` can incorrectly return successfully.
+* Fix a crash when using a node with more than 2 outputs.
+* Fix a bug where `ma_standard_sample_rate_11025` uses the incorrect rate.
+* Fix a bug in `ma_noise` where only white noise would be generated even when specifying pink or Brownian.
+* Fix an SSE related bug when converting from mono streams.
+* Documentation fixes.
+* Remove the use of some deprecated functions.
+* Improvements to runtime linking on Apple platforms.
+* Web / Emscripten: Audio will no longer attempt to unlock in response to the "touchstart" event. This addresses an issue with iOS and Safari. This results in a change of behavior if you were previously depending on starting audio when the user's finger first touches the screen. Audio will now only unlock when the user's finger is lifted. See this discussion for details: https://github.com/mackron/miniaudio/issues/759
+* Web / Emscripten: Fix an error when using a sample rate of 0 in the device config.
+
+
 v0.11.18 - 2023-08-07
 =====================
 * Fix some AIFF compatibility issues.
